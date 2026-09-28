@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <header>
+        <h1>Student Registration Portal</h1>
+        <p>Enter your details carefully before submitting the form.</p>
+      </header>
+
+      <div class="notice">
+        <strong>Privacy notice:</strong> The information submitted here is collected for student registration
+        and administration. Only authorized administrators should access the stored records.
+      </div>
+
+      <form id="registrationForm">
+        <h2>Personal Details</h2>
+        <div class="grid">
+          <label>First Name *
+            <input name="first_name" required autocomplete="given-name">
+          </label>
+          <label>Middle Name
+            <input name="middle_name" autocomplete="additional-name">
+          </label>
+          <label>Last Name *
+            <input name="last_name" required autocomplete="family-name">
+          </label>
+          <label>Admission Number *
+            <input name="admission_number" required>
+          </label>
+          <label>Date of Birth *
+            <input type="date" name="date_of_birth" required>
+          </label>
+          <label>Gender *
+            <select name="gender" required>
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+              <option>Prefer not to say</option>
+            </select>
+          </label>
+          <label>Email Address *
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>Phone Number *
+            <input name="phone" required autocomplete="tel">
+          </label>
+        </div>
+
+        <h2>Admission Details</h2>
+        <div class="grid">
+          <label>Course / Programme *
+            <input name="course" required>
+          </label>
+          <label>Year of Admission *
+            <input type="number" name="year_of_admission" min="2000" max="2100" required>
+          </label>
+          <label>Institution / School *
+            <input name="institution" required>
+          </label>
+          <label>County *
+            <input name="county" required>
+          </label>
+        </div>
+
+        <h2>Contact Details</h2>
+        <div class="grid">
+          <label class="wide">Address
+            <textarea name="address" rows="3"></textarea>
+          </label>
+          <label>Emergency Contact Name
+            <input name="emergency_name">
+          </label>
+          <label>Emergency Contact Phone
+            <input name="emergency_phone">
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="secondary">Clear</button>
+          <button type="submit">Submit Registration</button>
+        </div>
+        <p id="message" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+<form action="form"></form>

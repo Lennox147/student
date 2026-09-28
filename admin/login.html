@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Login</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="login-card">
+    <h1>Administrator Login</h1>
+    <p>Authorized personnel only.</p>
+    <form id="loginForm">
+      <label>Username
+        <input name="username" required autocomplete="username">
+      </label>
+      <label>Password
+        <input type="password" name="password" required autocomplete="current-password">
+      </label>
+      <button type="submit">Sign In</button>
+      <p id="message"></p>
+    </form>
+  </main>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const msg = document.getElementById("message");
+      const r = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+      });
+      const result = await r.json();
+      if (r.ok) location.href = "/admin/dashboard";
+      else msg.textContent = result.error || "Login failed.";
+    });
+  </script>
+</body>
+</html>
